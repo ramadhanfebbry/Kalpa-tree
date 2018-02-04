@@ -1,0 +1,25 @@
+@extends('layouts.app.frame')
+@section('title', 'Create New %%modelName%%')
+@section('description', 'Please make sure to check all input')
+@section('breadcrumbs', Breadcrumbs::render('%%viewName%%.new'))
+@section('button', '<a href="'.url('/%%routeGroup%%%%viewName%%').'" class="btn btn-info btn-xs no-border">Back
+</a>')
+
+@section('content')
+    {!! Form::open(['url' => '/%%routeGroup%%%%viewName%%', 'id' => 'formValidate', 'files' => true]) !!}
+
+		@include ('%%viewTemplateDir%%.form')
+
+	{!! Form::close() !!}
+@endsection
+
+
+@push("script")
+<script>
+$(document).ready(function() {
+
+    $('#formValidate').validate();
+
+});
+</script>
+@endpush

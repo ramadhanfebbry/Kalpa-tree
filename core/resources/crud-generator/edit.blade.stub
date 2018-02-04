@@ -1,0 +1,21 @@
+@extends('layouts.app.frame')
+@section('title', 'Edit Merchant')
+@section('description', 'Please make sure to check all input')
+@section('breadcrumbs', Breadcrumbs::render('%%viewName%%.edit', $%%viewName%%))
+@section('button', '<a href="'.url('/root/%%viewName%%').'" class="btn btn-info btn-xs no-border">Back
+</a>')
+
+@section('content')
+
+
+    {!! Form::model($%%crudNameSingular%%, [
+            'method' => 'PATCH',
+            'url' => ['/%%routeGroup%%%%viewName%%', $%%crudNameSingular%%->%%primaryKey%%],
+            'files' => true,
+            'id' => 'formValidate',
+        ]) !!}
+
+        @include ('%%viewTemplateDir%%.form', ['submitButtonText' => 'Update'])
+
+	{!! Form::close() !!}
+@endsection
